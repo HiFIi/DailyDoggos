@@ -10,7 +10,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HiFii.Home">
+        android:theme="@style/Theme.HiFii.Home"
+        android:fullBackupContent="@xml/backup_descriptor">
         <activity android:name=".HiFii">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

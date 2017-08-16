@@ -48,6 +48,7 @@ limitations under the License.
                 android:clipChildren="false">
 
                 <!-- Background photo. -->
+                <!--suppress DeprecatedClassUsageInspection -->
                 <FrameLayout
                     android:id="@+id/session_photo_container"
                     android:layout_width="match_parent"
