@@ -1,0 +1,43 @@
+<resources>
+    <dimen name="nav_drawer_max_width">320.0dip</dimen>
+
+    <dimen name="drawer_item_icon_left_padding">16.0dip</dimen>
+    <dimen name="drawer_item_icon_right_padding">16.0dip</dimen>
+
+    <dimen name="play_drawer_item_left_padding">16.0dip</dimen>
+    <dimen name="play_drawer_item_right_padding">16.0dip</dimen>
+
+    <!-- 'Borrowed' From the Hangouts 5.0 values/dimens.xml :p -->
+
+    <dimen name="fab_touch_raise">6dp</dimen>
+    <dimen name="fab_elevation">8dp</dimen>
+    <dimen name="headerbar_elevation">4.0dip</dimen>
+    <dimen name="session_detail_max_header_elevation">@dimen/headerbar_elevation</dimen>
+
+    <dimen name="launch_screen_logo_bottom">24.0dip</dimen>
+    <dimen name="launch_screen_text_bottom">48.0dip</dimen>
+
+    <!-- General profileIcon margins for the drawer item -->
+    <dimen name="material_drawer_item_padding">8dp</dimen>
+    <!-- Definition for the primary item -->
+    <dimen name="material_drawer_item_primary">48dp</dimen>
+    <dimen name="material_drawer_item_primary_icon">56dp</dimen>
+    <dimen name="material_drawer_item_primary_icon_padding">12dp</dimen>
+    <dimen name="material_drawer_item_primary_icon_padding_right">32dp</dimen>
+    <dimen name="material_drawer_item_primary_text">14sp</dimen>
+    <dimen name="material_drawer_item_primary_description">14sp</dimen>
+    <dimen name="material_drawer_item_secondary_description">12sp</dimen>
+
+    <!-- General drawer width https://medium.com/sebs-top-tips/material-navigation-drawer-sizing-558aea1ad266 -->
+    <dimen name="material_drawer_width">320dp</dimen>
+    <!-- Definition for the Drawer Slider margin right -->
+    <dimen name="material_drawer_margin">0dp</dimen>
+    <!-- General padding value -->
+    <dimen name="material_drawer_padding">8dp</dimen>
+    <!-- General vertical padding values / 24dp for tablets -->
+    <dimen name="material_drawer_vertical_padding">16dp</dimen>
+
+    <!-- line spacing -->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+</resources>

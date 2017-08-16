@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">The Daily Doggo</string>
+
+    <string name="home">Home</string>
+    <string name="past_pictures">Past photos</string>
+    <string name="about">About</string>
+
+    <string name="version_number">0.0.1</string>
+
+    <!-- Greeting messages for the various time of day. -->
+    <string name="its_dawn">It\'s Dawn.</string>
+    <string name="its_morning">Good morning!</string>
+    <string name="its_afternoon">Good afternoon!</string>
+    <string name="its_midday">It\'s the middle of the day.</string>
+    <string name="its_evening">Good evening!</string>
+    <string name="its_dusk">It\'s dusk.</string>
+    <string name="its_nighttime">It\'s night time.</string>
+    <string name="kinley_intro">FILLER SPACE. IGNORE. \n\n\n\n
+        This is Kinley! She is a sweet little girl who loves to play in the mud/water
+        and anything that gets her dirty. \n \nShe likes to gives lots of hugs and kisses, play with her 3-legged bro Wylee,
+    and bark at airplanes and such because she is weird. \n \n She is such a beautiful and intelligent girl, and the perfect
+    companion for Wylee as he advances in age and becomes a grumpy old dog.</string>
+    <string name="settings">Settings</string>
+    <string name="unknown">\????????</string>
+</resources>
