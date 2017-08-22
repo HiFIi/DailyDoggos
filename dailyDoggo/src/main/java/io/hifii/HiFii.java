@@ -88,7 +88,7 @@ public abstract class HiFii extends AppCompatActivity {
     private static final boolean isDebug = false;
     private static String mVersionNumber;
     // list of navdrawer items that were actually added to the navdrawer, in order
-    private final ArrayList<Integer> mNavDrawerItems = new ArrayList<>();
+    private final ArrayList<Integer> mNavDrawerItems = new ArrayList<Integer>();
     // Primary toolbar and drawer toggle
     // public Toolbar mActionBarToolbar;
     public int drawerColorCalendar = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
@@ -127,15 +127,18 @@ public abstract class HiFii extends AppCompatActivity {
 
         if (!first.getBoolean("firstTimeRan", false)) {
 
-            new Handler().post(() -> {
-             /*   if (!isDebug) {
-                    Intent intent = new Intent(HiFii.this, Start.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-                } else {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                 /*   if (!isDebug) {
+                        Intent intent = new Intent(HiFii.this, Start.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
+                    } else {
 
-                } */
+                    } */
+                }
             });
 
             SharedPreferences.Editor editor = first.edit();
@@ -215,22 +218,30 @@ public abstract class HiFii extends AppCompatActivity {
 
         final int navDrawerChosenAccountHeight = getResources().getDimensionPixelSize(
                 R.dimen.navdrawer_chosen_account_height);
-        navDrawer.setOnInsetsCallback(insets -> {
-            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams)
-                    chosenAccountContentView.getLayoutParams();
-            lp.topMargin = insets.top;
-            chosenAccountContentView.setLayoutParams(lp);
+        navDrawer.setOnInsetsCallback(new ScrimInsetsScrollView.OnInsetsCallback() {
+            @Override
+            public void onInsetsChanged(Rect insets) {
+                ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams)
+                        chosenAccountContentView.getLayoutParams();
+                lp.topMargin = insets.top;
+                chosenAccountContentView.setLayoutParams(lp);
 
-            ViewGroup.LayoutParams lp2 = chosenAccountView.getLayoutParams();
-            chosenAccountView.setLayoutParams(lp2);
+                ViewGroup.LayoutParams lp2 = chosenAccountView.getLayoutParams();
+                chosenAccountView.setLayoutParams(lp2);
+            }
         });
 
         if (mToolbar != null) {
             mToolbar.setNavigationIcon(R.drawable.ic_drawer_white);
-            mToolbar.setNavigationOnClickListener(view -> mDrawerLayout.openDrawer(Gravity.START));
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mDrawerLayout.openDrawer(Gravity.START);
+                }
+            });
         }
 
-        mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+        mDrawerLayout.setDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerClosed(View drawerView) {
                 // run deferred action, if we have one
@@ -300,7 +311,7 @@ public abstract class HiFii extends AppCompatActivity {
         mNavDrawerItems.add(NAVDRAWER_ITEM_SETTINGS);
         mNavDrawerItems.add(NAVDRAWER_ITEM_ABOUT);
 
-        /* decide which items will appear in the nav drawer
+        /** decide which items will appear in the nav drawer
         if (AccountUtils.hasActiveAccount(this)) {
             // Only logged-in users can save sessions, so if there is no active account,
             // there is no My Schedule
@@ -409,7 +420,13 @@ public abstract class HiFii extends AppCompatActivity {
 
     private void onNavDrawerItemClicked(final int itemId) {
         if (itemId == getSelfNavDrawerItem()) {
-            new Handler().postDelayed(() -> mDrawerLayout.closeDrawer(GravityCompat.START), NAVDRAWER_CLOSE_PRELAUNCH);
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                }
+            }, NAVDRAWER_CLOSE_PRELAUNCH);
             return;
         }
 
@@ -419,20 +436,28 @@ public abstract class HiFii extends AppCompatActivity {
 
             mDrawerLayout.closeDrawer(GravityCompat.START);
 
-            new Handler().postDelayed(() -> {
-                // change the active item on the list so the user can see the item changed
-                setSelectedNavDrawerItem(itemId);
+            new Handler().postDelayed(new Runnable() {
 
-                goToNavDrawerItem(itemId);
+                @Override
+                public void run() {
+                    // change the active item on the list so the user can see the item changed
+                    setSelectedNavDrawerItem(itemId);
+
+                    goToNavDrawerItem(itemId);
+                }
             }, NAVDRAWER_LAUNCH_DELAY);
 
             //    goToNavDrawerItem(itemId);
 
-            new Handler().postDelayed(() -> {
-                // fade out the main content
-                View mainContent = findViewById(R.id.main_content);
-                if (mainContent != null) {
-                    mainContent.animate().alpha(0).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    // fade out the main content
+                    View mainContent = findViewById(R.id.main_content);
+                    if (mainContent != null) {
+                        mainContent.animate().alpha(0).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
+                    }
                 }
             }, POST_LAUNCH_FADE);
         }
@@ -521,7 +546,12 @@ public abstract class HiFii extends AppCompatActivity {
 
         formatNavDrawerItem(view, itemId, selected);
 
-        view.setOnClickListener(v -> onNavDrawerItemClicked(itemId));
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onNavDrawerItemClicked(itemId);
+            }
+        });
 
         return view;
     }

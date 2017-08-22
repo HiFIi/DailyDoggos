@@ -1,7 +1,7 @@
 package io.hifii.activities;
 
-/*
-  Created by kyler on 12/27/16.
+/**
+ * Created by kyler on 12/27/16.
  */
 
 import android.content.Context;

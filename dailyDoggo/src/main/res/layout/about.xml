@@ -12,7 +12,6 @@ limitations under the License.
 -->
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:customfontdemo="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
@@ -29,8 +28,7 @@ limitations under the License.
             android:layout_height="fill_parent"
             android:background="#4285f4"
             android:elevation="4.0dip"
-            android:orientation="vertical"
-            tools:ignore="UselessParent">
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"

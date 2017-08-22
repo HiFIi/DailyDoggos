@@ -109,7 +109,8 @@ public class UIUtils {
                                 : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                         PackageManager.DONT_KILL_APP);
             }
-        } catch (PackageManager.NameNotFoundException | ClassNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException e) {
+        } catch (ClassNotFoundException e) {
         }
     }
 
